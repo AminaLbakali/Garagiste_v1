@@ -12,16 +12,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Client::factory(5)->create();
-        \App\Models\Facture::factory(5)->create();
-        \App\Models\Mecanicien::factory(5)->create();
-        \App\Models\Reparation::factory(5)->create();
-        \App\Models\Vehicule::factory(5)->create();
-        \App\Models\RendezVous::factory(5)->create();
-        \App\Models\PiecesRechange::factory(5)->create();
+        // \App\Models\Client::factory(5)->create();
+        // \App\Models\Facture::factory(5)->create();
+        // \App\Models\Mecanicien::factory(5)->create();
+        // \App\Models\Reparation::factory(5)->create();
+        // \App\Models\Vehicule::factory(5)->create();
+        // \App\Models\RendezVous::factory(5)->create();
+        // \App\Models\PiecesRechange::factory(5)->create();
         \App\Models\User::factory()->create([
-           'name' => 'Test User',
-           'email' => 'test@example.com',
+           'username' => 'Test User client',
+           'email' => 'testclient@example.com',
+           'password' =>'password',
+           'role' => 'client'
         ]);
     }
 }

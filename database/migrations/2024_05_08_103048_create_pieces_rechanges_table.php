@@ -12,12 +12,12 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('pieces_rechanges', function (Blueprint $table) {
+        Schema::create('sparePart', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('reference');
-            $table->string('fournisseur');
-            $table->integer('prix');
+            $table->string('partName');
+            $table->string('partReference');
+            $table->string('supplier');
+            $table->integer('price');
             $table->integer('stock');
             $table->timestamps();
         });

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicule extends Model
 {
     use HasFactory;
-    protected $fillable = ['Marque', 'Modele', 'Type_carburant',  'numero_immatriculation', 'Picture'];
+    protected $fillable = ['marke', 'model', 'fuelType',  'registration', 'clientID'];
 
     public function client()
 {

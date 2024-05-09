@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Facture extends Model
 {
     use HasFactory;
+    protected $fillable = ['additionalCharges', 'totalAmount', 'repairID'];
     public function reparation()
-{
-    return $this->belongsTo(Reparation::class);
-}
+    {
+        return $this->belongsTo(Reparation::class);
+    }
 
-public function piecesRechange()
-{
-    return $this->belongsTo(PiecesRechange::class);
-}
-
+    public function piecesRechange()
+    {
+        return $this->belongsTo(PiecesRechange::class);
+    }
 }

@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    @vite( 'resources/css/app.css', 'resources/js/app.js' )
-</head>
-<body>
+@extends('adminHome.index')
+
+@section('Content')
     <h1 class="text-3xl font-bold mb-4">Liste des Clients</h1>
 
     @if(session('success'))
         <div class="text-green-500">{{ session('success') }}</div>
     @endif
-    
+
+    @if ($clients)
     <table class="border-collapse border border-gray-200">
         <thead>
             <tr>
@@ -28,10 +22,10 @@
         <tbody>
             @foreach($clients as $client)
             <tr>
-                <td class="border border-gray-200 px-4 py-2">{{ $client->nom }}</td>
-                <td class="border border-gray-200 px-4 py-2">{{ $client->prenom }}</td>
-                <td class="border border-gray-200 px-4 py-2">{{ $client->adresse }}</td>
-                <td class="border border-gray-200 px-4 py-2">{{ $client->numero_telephone }}</td>
+                <td class="border border-gray-200 px-4 py-2">{{ $client->firstName }}</td>
+                <td class="border border-gray-200 px-4 py-2">{{ $client->lastName }}</td>
+                <td class="border border-gray-200 px-4 py-2">{{ $client->address }}</td>
+                <td class="border border-gray-200 px-4 py-2">{{ $client->phoneNumber }}</td>
                 <td class="border border-gray-200 px-4 py-2">{{ $client->adresse_email }}</td>
                 <td class="border border-gray-200 px-4 py-2">
                     <a href="{{ route('clients.edit', $client->id) }}" class="text-blue-600 hover:underline">Modifier</a>
@@ -45,9 +39,13 @@
             @endforeach
         </tbody>
     </table>
-    
+    @else
+        <h3>No clients </h3>
+    @endif
+
+
+
     <a href="{{ route('clients.create') }}" class="block mt-4 text-blue-600 hover:underline">Ajouter un Client</a>
+
     
-        
-</body>
-</html>
+@endsection

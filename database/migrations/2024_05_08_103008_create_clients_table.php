@@ -9,16 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-
     public function up(): void
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('adresse');
-            $table->string('numero_telephone');
-            $table->string('adresse_email');
+            $table->string('firstName'); 
+            $table->string('lastName');
+            $table->string('address');
+            $table->string('phoneNumber');
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

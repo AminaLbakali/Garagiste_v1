@@ -8,7 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Reparation extends Model
 {
     use HasFactory;
-
+    protected $fillable=[
+        'description',
+        'status',
+        'startDate',
+        'endDate',
+        'mechanicNotes',
+        'clientNotes',
+        'mechanicID',
+        'vehicleID'
+    ];
     public function vehicule()
 {
     return $this->belongsTo(Vehicule::class);

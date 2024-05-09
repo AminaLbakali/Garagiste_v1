@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
+            $table->float('additionalCharges');
+            $table->float('totalAmount');
+            $table->unsignedBigInteger('repairID');
             $table->timestamps();
+            $table->foreign('repairID')->references('id')->on('repairs')->onDelete('cascade');
         });
     }
 
