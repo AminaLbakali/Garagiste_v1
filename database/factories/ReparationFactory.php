@@ -17,7 +17,15 @@ class ReparationFactory extends Factory
     public function definition(): array
     {
         return [
-            'id'=>fake()->randomNumber(4)
+            'description'=>fake()->text(),
+            'status'=>fake()->randomElement(['En cours', 'Termine']),
+            'startDate'=>fake()->date(),
+            'endDate'=>fake()->date(),
+            'mechanicNotes'=>fake()->text(),
+            'clientNotes'=>fake()->text(),
+            'mechanicID'=>fake()->numberBetween(1, 10),
+            'vehicleID'=>fake()->numberBetween(1, 10),
+
         ];
     }
 }

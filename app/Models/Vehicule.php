@@ -8,16 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicule extends Model
 {
     use HasFactory;
-    protected $fillable = ['Marque', 'Modele', 'Type_carburant',  'numero_immatriculation', 'Picture'];
+    protected $table = 'vehicules';
+    protected $fillable = ['Marque', 'Modele', 'Type_carburant',  'numero_immatriculation', 'Picture', 'client_id'];
 
     public function client()
 {
-    return $this->belongsTo(Client::class);
+    return $this->belongsTo(Client::class,"client_id");
 }
 
     public function reparations()
     {
-        return $this->hasMany(Reparation::class);
+        return $this->hasMany(Reparation::class,"vehicleID");
     }
 
 }

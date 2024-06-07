@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('reparations', function (Blueprint $table) {
             $table->id();
+            $table->longText('description');
+            $table->string('status');
+            $table->string('startDate');
+            $table->string('endDate');
+            $table->string('mechanicNotes');
+            $table->string('clientNotes');
+            $table->unsignedBigInteger('mechanicID');
+            $table->unsignedBigInteger('vehicleID');
+            $table->foreign('mechanicID')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('vehicleID')->references('id')->on('vehicules')->onDelete('cascade');
             $table->timestamps();
         });
     }

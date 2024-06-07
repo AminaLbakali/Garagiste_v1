@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Client;
+use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
@@ -27,6 +28,31 @@ class ClientController extends Controller
             'numero_telephone' => 'required',
             'adresse_email' => 'required|email',
         ]);
+
+
+        $userData['name'] = $request->nom;
+        $userData['email'] = $request->adresse_email;
+        $userData['password'] = ('password');
+        $userData['role'] = 'client';
+
+        $user = User::create($userData);
+        if ($user) {
+           
+            $clientData['nom'] = $request->nom;
+            $clientData['prenom'] = $request->prenom;
+            $clientData['adresse'] = $request->adresse;
+            $clientData['adresse_email'] = $request->adresse_email;
+            $clientData['numero_telephone'] = $request->numero_telephone;
+            $clientData['userID'] = $user->id;
+            $client = Client::create($clientData);
+
+            if ($client) {
+                return redirect()->route('clients.index');
+            }
+        } else {
+            redirect()->back()->withErrors(['error' => 'error creating client']);
+        }
+
 
         Client::create($validatedData);
 

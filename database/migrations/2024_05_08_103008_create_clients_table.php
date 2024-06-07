@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('adresse');
             $table->string('numero_telephone');
             $table->string('adresse_email');
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

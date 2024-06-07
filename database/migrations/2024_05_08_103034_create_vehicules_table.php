@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('Type_carburant');
             $table->string('numero_immatriculation');
             $table->string('Picture');
+            $table->unsignedBigInteger('clientID');
+            $table->foreign('clientID')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();
         });
     }

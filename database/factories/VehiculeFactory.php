@@ -20,7 +20,7 @@ class VehiculeFactory extends Factory
             'Marque'=>fake()->name(),
             'Modele'=>fake()->name(),
             'Type_carburant'=>fake()->name(),
-            'numero_immatriculation'=>fake()->name(),
+            'numero_immatriculation'=>$this->faker->numberBetween(1000, 9999),
             'Picture'=>fake()->imageUrl(),
         ];
     }
