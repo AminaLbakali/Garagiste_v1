@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PiecesRechange extends Model
 {
     use HasFactory;
-    protected $fillable = ['nom', 'reference', 'fournisseur', 'prix', 'stock'];
+    protected $fillable = ['partName', 'partReference', 'supplier', 'price', 'stock'];
     public function factures()
 {
     return $this->hasMany(Facture::class);

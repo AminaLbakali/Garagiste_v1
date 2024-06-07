@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
        // \App\Models\Facture::factory(5)->create();
        // \App\Models\Mecanicien::factory(1)->create();
        // \App\Models\Reparation::factory(3)->create();
@@ -26,6 +27,20 @@ class DatabaseSeeder extends Seeder
            'numero_telephone' => '123456789',
            'adresse_email' => 'adminuser@example.com',
            'userID' => 1,
+=======
+        // \App\Models\Client::factory(5)->create();
+        // \App\Models\Facture::factory(5)->create();
+        // \App\Models\Mecanicien::factory(5)->create();
+        // \App\Models\Reparation::factory(5)->create();
+        // \App\Models\Vehicule::factory(5)->create();
+        // \App\Models\RendezVous::factory(5)->create();
+        // \App\Models\PiecesRechange::factory(5)->create();
+        \App\Models\User::factory()->create([
+           'username' => 'Test User client',
+           'email' => 'testclient@example.com',
+           'password' =>'password',
+           'role' => 'client'
+>>>>>>> eeedc205a40a5ebed69ce52162a1d28c0885d139
         ]);
 
        \App\Models\User::factory()->create([

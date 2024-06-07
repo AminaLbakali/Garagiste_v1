@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reparations', function (Blueprint $table) {
+        Schema::create('repairs', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD
             $table->longText('description');
+=======
+            $table->string('description');
+>>>>>>> eeedc205a40a5ebed69ce52162a1d28c0885d139
             $table->string('status');
             $table->string('startDate');
             $table->string('endDate');
@@ -22,7 +26,11 @@ return new class extends Migration
             $table->unsignedBigInteger('mechanicID');
             $table->unsignedBigInteger('vehicleID');
             $table->foreign('mechanicID')->references('id')->on('users')->onDelete('cascade');
+<<<<<<< HEAD
             $table->foreign('vehicleID')->references('id')->on('vehicules')->onDelete('cascade');
+=======
+            $table->foreign('vehicleID')->references('id')->on('vehicles')->onDelete('cascade');
+>>>>>>> eeedc205a40a5ebed69ce52162a1d28c0885d139
             $table->timestamps();
         });
     }
