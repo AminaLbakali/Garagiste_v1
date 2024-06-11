@@ -20,7 +20,6 @@ use App\Http\Controllers\PiecesRechangeController;
 Route::resource('mechanics', 'App\Http\Controllers\MecanicienController');
 
 
-<<<<<<< HEAD
 Route::controller(UserController::class)->group(function(){
     Route::get('users', 'index');
     Route::get('users-export', 'export')->name('users.export');
@@ -66,37 +65,5 @@ Route::middleware('auth')->group(function () {
     Route::middleware('admin')->group(function () {
         Route::get('/users/create', [UserController::class, 'create']);
         Route::post('/users', [UserController::class, 'store']);
-=======
-
-
-Route::get('/', function () {
-    return view('login');
-});
-
-
-
-Route::group(['namespace' => 'App\Http\Controllers'], function()
-{   
-    /**
-     * Home Routes
-     */
-    Route::get('/', 'HomeController@index')->name('home.index');
-
-    Route::group(['middleware' => ['guest']], function() {
-        /**
-         * Login Routes
-         */
-        Route::get('/login', 'LoginController@show')->name('login.show');
-        Route::post('/login', 'LoginController@login')->name('login.perform');
-
-    });
-
-    Route::group(['middleware' => ['auth']], function() {
-        /**
-         * Logout Routes
-         */
-        Route::resource('clients', ClientController::class);
-        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
->>>>>>> eeedc205a40a5ebed69ce52162a1d28c0885d139
     });
 });
